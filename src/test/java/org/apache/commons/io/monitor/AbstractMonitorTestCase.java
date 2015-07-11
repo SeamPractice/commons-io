@@ -126,18 +126,23 @@ public abstract class AbstractMonitorTestCase extends TestCase {
                                         final int fileCreate, 
                                         final int fileChange, 
                                         final int fileDelete) {
-        label = label + "[" + listener.getCreatedDirectories().size() +
-                        " " + listener.getChangedDirectories().size() +
-                        " " + listener.getDeletedDirectories().size() +
-                        " " + listener.getCreatedFiles().size() +
-                        " " + listener.getChangedFiles().size() +
-                        " " + listener.getDeletedFiles().size() + "]";
+        label = label + getTextHelper();
         assertEquals(label + ": No. of directories created",  dirCreate,  listener.getCreatedDirectories().size());
         assertEquals(label + ": No. of directories changed",  dirChange,  listener.getChangedDirectories().size());
         assertEquals(label + ": No. of directories deleted",  dirDelete,  listener.getDeletedDirectories().size());
         assertEquals(label + ": No. of files created", fileCreate, listener.getCreatedFiles().size());
         assertEquals(label + ": No. of files changed", fileChange, listener.getChangedFiles().size());
         assertEquals(label + ": No. of files deleted", fileDelete, listener.getDeletedFiles().size());
+    }
+    
+    private String getTextHelper(){
+    	
+    	return "[" + listener.getCreatedDirectories().size() +
+                " " + listener.getChangedDirectories().size() +
+                " " + listener.getDeletedDirectories().size() +
+                " " + listener.getCreatedFiles().size() +
+                " " + listener.getChangedFiles().size() +
+                " " + listener.getDeletedFiles().size() + "]";
     }
 
     /**
